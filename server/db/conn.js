@@ -1,15 +1,16 @@
 const { MongoClient } = require("mongodb");
-const Db = process.env.ATLAS_URI;
 const client = new MongoClient('mongodb://localhost:27017', { monitorCommands: true });
-
 var _db;
 
 module.exports = {
-    connectToServer: function (callback) {
-        client.connect(function (err) {
-                console.log("Successfully connected to MongoDB.");
-            return callback(err);
-        });
+    connectToServer: function () {
+        client.connect()
+            .then(() => {
+                console.log('Connected to the MongoDB server');
+            })
+            .catch(err => {
+                console.error('Error connecting to the MongoDB server:', err);
+            });
     },
 
     getDb: function () {

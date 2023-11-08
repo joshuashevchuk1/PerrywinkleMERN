@@ -8,7 +8,7 @@ const dbo = require("../db/db");
 const ObjectId = require("mongodb").ObjectId;
 
 
-healthRoute.route("/").get(function (req, res){
+healthRoute.route("/health").get(function (req, res){
     res.send("OK");
 });
 

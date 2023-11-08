@@ -14,7 +14,7 @@ perryRoute.route('/perry').get((req, res) => {
     console.log('FILTER: ', JSON.stringify(filter, null, 2));
 
     // Use Mongoose to find data based on the filter
-    perryModel.findOne(filter, (err, results) => {
+    perryModel.find(filter, (err, results) => {
         if (err) {
             console.error('Error while querying data:', err);
             res.status(500).json({ error: 'Internal Server Error' });

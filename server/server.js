@@ -10,7 +10,10 @@ const dbo = require("./db/db");
 
 // routes
 const healthroute = require('./routes/health.route')
-app.use(healthroute)
+//app.use(healthroute)
+
+const perryRoute = require('./routes/perry.route')
+app.use(perryRoute)
 
 dbo.connect().then(() => {
     app.listen(port, () => {

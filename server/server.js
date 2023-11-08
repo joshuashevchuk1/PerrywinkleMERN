@@ -8,11 +8,16 @@ app.use(express.json());
 //app.use(require("./routes/record"));
 app.use(require("./routes/health"));
 // get driver connection
-const dbo = require("./db/conn");
-app.listen(port, () => {
-    // perform a database connection when server starts
-    dbo.connectToServer(function (err) {
-        if (err) console.error(err);
-    });
-    console.log(`Server is running on port: ${port}`);
-});
+const dbo = require("./db/db");
+
+
+dbo.connect().then(() => {
+    app.listen(port, () => {
+        console.log(`app listening on port ${port}!`)
+    })
+})
+    .catch(
+        /* istanbul ignore next */ (e) => {
+            console.log(e)
+        }
+    )

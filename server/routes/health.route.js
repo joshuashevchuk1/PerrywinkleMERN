@@ -1,5 +1,5 @@
 const express = require("express");
-const health = express.Router();
+const healthRoute = express.Router();
 
 // This will help us connect to the database
 const dbo = require("../db/db");
@@ -8,8 +8,8 @@ const dbo = require("../db/db");
 const ObjectId = require("mongodb").ObjectId;
 
 
-health.route("/").get(function (req,res){
+healthRoute.route("/").get(function (req, res){
     res.send("OK");
 });
 
-module.exports = health;
+module.exports = healthRoute;

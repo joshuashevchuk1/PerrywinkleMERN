@@ -27,7 +27,6 @@ export default function RecordList() {
                 return;
             }
             const records = await response.json();
-            console.log("records is ", records)
             setRecords(records);
         }
         getRecords();

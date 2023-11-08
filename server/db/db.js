@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { mongoSettings } = require('../config/config')
 var _db;
 
 function getDb(){
@@ -8,7 +9,7 @@ function getDb(){
 
 function connect() {
     return new Promise((resolve, reject) => {
-        let mongoUri = `mongodb://localhost:27017`
+        let mongoUri = `mongodb://localhost:27017/${mongoSettings.dbName}`
         mongoose.connect(mongoUri).then((res, err) => {
             /* istanbul ignore if */
             if (err) {
@@ -21,4 +22,4 @@ function connect() {
     });
 }
 
-module.exports = { connect, getfb: getDb }
+module.exports = { connect, getDb }

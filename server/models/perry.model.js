@@ -20,4 +20,4 @@ perrySchema.index(
     { expireAfterSeconds: 2 * config.weekInSeconds }
 )
 
-module.exports = mongoose.model('perry', perrySchema, 'perrys')
+module.exports = mongoose.model('Perry', perrySchema, 'perrys')

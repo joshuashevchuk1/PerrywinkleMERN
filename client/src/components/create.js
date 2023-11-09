@@ -36,7 +36,7 @@ export default function Create() {
             <h3>Create New Record</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">PerryName</label>
                     <input
                         type="text"
                         className="form-control"

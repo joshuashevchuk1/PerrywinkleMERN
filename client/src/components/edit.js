@@ -38,8 +38,8 @@ export default function Edit() {
             perryName: form.perryName,
         };
         // This will send a post request to update the data in the database.
-        await fetch(`http://localhost:5000/update/${params.id}`, {
-            method: "POST",
+        await fetch(`http://localhost:5000/perry/${params.id}`, {
+            method: "PUT",
             body: JSON.stringify(editedPerson),
             headers: {
                 'Content-Type': 'application/json'
@@ -58,8 +58,8 @@ export default function Edit() {
                         type="text"
                         className="form-control"
                         id="name"
-                        value={form.name}
-                        onChange={(e) => updateForm({ name: e.target.value })}
+                        value={form.perryName}
+                        onChange={(e) => updateForm({ perryName: e.target.value })}
                     />
                 </div>
                 <div className="form-group">

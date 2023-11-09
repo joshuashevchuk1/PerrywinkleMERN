@@ -41,7 +41,22 @@ perryRoute.route('/perry').post((req, res) => {
     })
 });
 
-router.route('/perry/:id').put((req, res) => {
+perryRoute.route('/perry/:id').get((req, res) => {
+    PerryModel.findById(req.params.id, (e, r) => {
+        /* istanbul ignore if */
+        if (e) {
+            return res.status(500).json({ error: 500, message: e.message })
+        }
+        if (!r) {
+            return res
+                .status(404)
+                .json({ error: 404, message: 'map not found' })
+        }
+        res.status(200).json(r)
+    })
+})
+
+perryRoute.route('/perry/:id').put((req, res) => {
     PerryModel.findByIdAndUpdate(
         req.params.id,
         req.body,
